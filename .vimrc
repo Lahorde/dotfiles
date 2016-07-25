@@ -41,22 +41,30 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+call vundle#end()
+
 " set path
 " cd /home/remi/Projects
 set autochdir
 
 " set le nom de tabs 
-set statusline+=%f
-set laststatus=2
+"set statusline+=%f
+" set laststatus=2
 
 set paste
+
+" do not copy line number when copying with mouse
+se mouse+=a
 
 " airline config
 " let g:airline#extensions#tabline#left_sep = ' '
 " let g:airline#extensions#tabline#left_alt_sep = '|'
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline_theme='molokai'
-" set laststatus=2
+" let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='wombat'
+" Just show the filename (no path) in the tab
+let g:airline#extensions#tabline#fnamemod = ':t'
+set laststatus=2
 
 " shortcuts
 map <C-Left> <Esc>:tabprev<CR>
