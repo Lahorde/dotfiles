@@ -70,6 +70,9 @@ set laststatus=2
 map <C-Left> <Esc>:tabprev<CR>
 map <C-Right> <Esc>:tabnext<CR>
 map <C-n> <Esc>:tabnew
+" shortcuts over ssh
+map <Esc>[1;5C <C-Right>
+map <Esc>[1;5D <C-Left>
 
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
