@@ -16,7 +16,15 @@ set hidden
 set backspace=indent,eol,start
 
 " indentation
-set tabstop=8 softtabstop=0 expandtab shiftwidth=2
+set autoindent
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+
+" set paste diable indentation. Instead use F10 to toggle paste/nopaste mode
+set pastetoggle=<F2>
+set nopaste
+
+"refresh unchanged files
+set autoread
 
 " disable transparency
 hi Normal guibg=Black ctermbg=Black
@@ -47,12 +55,6 @@ call vundle#end()
 " cd /home/remi/Projects
 set autochdir
 
-" set le nom de tabs 
-"set statusline+=%f
-" set laststatus=2
-
-set paste
-
 " do not copy line number when copying with mouse
 se mouse+=a
 
@@ -82,3 +84,4 @@ imap <c-s> <Esc>:w<CR>a
 
 map <F2> :mksession! ~/vim_session <cr> " Quick write session with F2
 map <F3> :source ~/vim_session <cr>     " And load session with F3
+
