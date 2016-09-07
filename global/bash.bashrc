@@ -55,6 +55,9 @@ esac
 
 # sanitize TERM:
 safe_term=${TERM//[^[:alnum:]]/?}
+# also checks when a wildcard such as xterm* is given in dircolors XTERMs
+wildcard_term=${safe_term//\?*/*}
+
 match_lhs=""
 
 [[ -f ~/.dir_colors ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
@@ -63,12 +66,9 @@ match_lhs=""
 	&& type -P dircolors >/dev/null \
 	&& match_lhs=$(dircolors --print-database)
 
-echo $'\n'${match_lhs} >> /tmp/log
-echo *$'\n'"TERM "${safe_term}* >> /tmp/log
-if [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] ; then
+if [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] || [[ $'\n'${match_lhs} == *$'\n'"TERM "${wildcart_term}* ]]; then
 	
 	# we have colors :-)
-  echo prout >> /tmp/log
 	# Enable colors for ls, etc. Prefer ~/.dir_colors
 	if type -P dircolors >/dev/null ; then
 		if [[ -f ~/.dir_colors ]] ; then
