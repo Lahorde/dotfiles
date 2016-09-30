@@ -45,9 +45,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " list installed plugins
-Plugin 'pangloss/vim-javascript'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'scrooloose/syntastic'
+Plugin 'maksimr/vim-jsbeautify'
 
 call vundle#end()
 
@@ -57,6 +60,18 @@ set autochdir
 
 " do not copy line number when copying with mouse
 se mouse+=a
+
+" Syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['jshint']
 
 " airline config
 " let g:airline#extensions#tabline#left_sep = ' '
