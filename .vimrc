@@ -51,6 +51,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/syntastic'
 Plugin 'maksimr/vim-jsbeautify'
+Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()
 
@@ -83,10 +84,16 @@ let g:airline_theme='wombat'
 let g:airline#extensions#tabline#fnamemod = ':t'
 set laststatus=2
 
+"jedi-vim config
+" do not show doc window
+autocmd FileType python setlocal completeopt-=preview
+" do not show functions params
+let g:jedi#show_call_signatures = 0
+
 " shortcuts
 map <C-Left> <Esc>:tabprev<CR>
 map <C-Right> <Esc>:tabnext<CR>
-map <C-n> <Esc>:tabnew
+" map <C-n> <Esc>:tabnew
 " shortcuts over ssh
 map <Esc>[1;5C <C-Right>
 map <Esc>[1;5D <C-Left>
