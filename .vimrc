@@ -1,7 +1,4 @@
-" colorscheme cobalt 
-
-" activates filetype detection
-filetype plugin indent on
+"colorscheme cobalt 
 
 " activates syntax highlighting among other things
 syntax on
@@ -17,11 +14,23 @@ set backspace=indent,eol,start
 
 " indentation
 set autoindent
+
+" activates filetype detection
+filetype plugin indent on
+
+set cindent
+" indentation settings per file
+au FileType python setl shiftwidth=4 tabstop=4
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 " set paste diable indentation. Instead use F10 to toggle paste/nopaste mode
 set pastetoggle=<F2>
 set nopaste
+
+" Exit INSERT mode without moving cursor (press sd or ds)
+set timeoutlen=300
+inoremap qs <Esc>l
+inoremap sq <Esc>l 
 
 "refresh unchanged files
 set autoread
@@ -69,8 +78,8 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_check_header = 1
 
 let g:syntastic_javascript_checkers = ['jshint']
 
