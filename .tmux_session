@@ -1,4 +1,3 @@
-new-session
 split-window -v   
 split-window -h 
 selectp -t 0 

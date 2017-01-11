@@ -64,6 +64,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/syntastic'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 call vundle#end()
 
