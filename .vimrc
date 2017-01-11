@@ -1,5 +1,9 @@
 "colorscheme cobalt 
 
+"Be sure files saved/opened as utf-8
+set fileencoding=utf-8
+set encoding=utf-8
+
 " activates syntax highlighting among other things
 syntax on
 
