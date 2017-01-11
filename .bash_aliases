@@ -4,7 +4,8 @@ alias hg="history |grep"
 alias psg="ps ax|grep"
 alias top='top -o %CPU'
 
-alias tmux_session="tmux new-session; source-file ~/.tmux_session"
+#before sourcing some configuration files tmux server must be started (new-sesion, start-server, attach-session) start it
+alias tmux_session="tmux start-server \; source-file ~/.tmux_session"
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
