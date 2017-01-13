@@ -3,6 +3,9 @@
 " activates syntax highlighting among other things
 syntax on
 
+" enable color (used for tmux session)
+set term=screen-256color
+
 " allows you to deal with multiple unsaved
 " buffers simultaneously without resorting
 " to misusing tabs
@@ -23,11 +26,11 @@ set cindent
 au FileType python setl shiftwidth=4 tabstop=4
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
-" set paste diable indentation. Instead use F10 to toggle paste/nopaste mode
-set pastetoggle=<F2>
+" set paste diable indentation. Instead use F4 to toggle paste/nopaste mode
+set pastetoggle=<F4>
 set nopaste
 
-" Exit INSERT mode without moving cursor (press sd or ds)
+" Exit INSERT mode without moving cursor (press qs or sq)
 set timeoutlen=300
 inoremap qs <Esc>l
 inoremap sq <Esc>l 
