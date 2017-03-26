@@ -11,6 +11,16 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Specific aliases (non permanent, depending on some projects, specific environment...)
+if [ -f ~/.bash_special_aliases ]; then
+    . ~/.bash_special_aliases
+fi
+
+# Specific bashrc (non permanent, depending on some projects, specific environment...)
+if [ -f ~/.bash_special ]; then
+    . ~/.bash_special
+fi
+
 xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
@@ -53,28 +63,9 @@ ex ()
   fi
 }
 
-# prompt set in bash.bashrc
-#PS1='[\u@\h \W]\$ '
-
 export EDITOR=vim
 
-#WINE parameters
-export WINEARCH=win32 WINEPREFIX=~/.wine_installs/win32 
-#export WINEARCH=win64 WINEPREFIX=~/.wine_installs/win64
-
-#use python 2 instead of python 3 - for nodejs
-export PYTHON=`which python2`
-
-# virtualenv and virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
-
-#for Nordic SDK
-export OS=Linux
-
-export PATH="$PATH:$HOME/.npm_global/bin"
-export PATH="$PATH:/home/data/remi/dev_tools/Embedded/Raspberry/tools/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi/bin/"
+export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
@@ -87,4 +78,3 @@ fi
 #Supprime raccourci Ctrl + s afin qu'il soit dispo pour vim 
 bind -r '\C-s'
 stty -ixon
-#tmux_session

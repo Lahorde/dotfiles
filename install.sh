@@ -1,6 +1,6 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-YELLOW='\033[0;31m'
+RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # trap ctrl-c and call ctrl_c()
@@ -33,16 +33,24 @@ done
 
 if ! tmux -V > /dev/null 2>&1
 then
-  echo -e "${YELLOW}please install tmux using your package manager. tmux version must be >= 2.1 ${NC}"
+  echo -e "${RED}please install tmux using your package manager. tmux version must be >= 2.1 ${NC}"
 fi  
 
 echo "install tmux plugin manager"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-echo -e "${YELLOW}After installation, run tmux and Press prefix + I (capital I, as in Install) to fetch the plugins. ${NC}" 
+if git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>&1
+then
+  echo -e "${RED}After installation, run tmux and Press prefix + I (capital I, as in Install) to fetch the plugins. ${NC}" 
+else
+  echo "tmux plugin manager already installed" 
+fi 
 
 echo "install vim vundle"
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-echo -e "${YELLOW}After installation, run vim and enter :PluginInstall ${NC}"
+if git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim > /dev/null 2>&1
+then
+  echo -e "${RED}After installation, run vim and enter :PluginInstall ${NC}"
+else
+  echo "vundle already installed"
+fi 
 
 global_files=("bash.bashrc" "DIR_COLORS")
 echo "Installing global dot files"
