@@ -14,3 +14,13 @@ alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano PKGBUILD'
+
+alias systemctl_restart_log='systemctl_restart_log'
+
+# Aliases requiring params
+systemctl_restart_log()
+{
+  sudo sytemctl restart $1
+  journalctl -u $1 -f
+}
+
