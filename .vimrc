@@ -115,7 +115,14 @@ map <C-Right> <Esc>:tabnext<CR>
 map <Esc>[1;5C <C-Right>
 map <Esc>[1;5D <C-Left>
 
+" new line in edit mode with enter
 nmap <S-Enter> O<Esc>
+" keep enter to run a command in command-line window 
+augroup commandlinewindow
+  autocmd!
+  autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
+augroup END
+
 nmap <CR> o<Esc>
 
 nmap <c-s> :w<CR>
