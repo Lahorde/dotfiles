@@ -15,6 +15,9 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano PKGBUILD'
 
+alias fs_rw='sudo mount -o remount,rw'                                                        
+alias fs_ro='sudo mount -o remount,ro'                                                        
+
 alias systemctl_restart_log='systemctl_restart_log'
 
 # Aliases requiring params
