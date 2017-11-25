@@ -2,7 +2,6 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 RED='\e[0;31m'
 GREEN='\e[32m'
-NC='\e[0m' # No Color
 BOLD='\e[1m'
 NORMAL='\e[0m' # Reset all
 
