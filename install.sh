@@ -47,7 +47,7 @@ show_main_step "Installing user dot files"
 for file in "${user_files[@]}"
 do
   abs_path_file="${DIR}/${file}"
-  if [ ! -z "~/${file}" ]
+  if [ -e ~/"${file}" ]
   then
     # check if it already points to dotfile
     if ls -l ~/${file} | grep -q "$abs_path_file"
@@ -55,7 +55,7 @@ do
       show_text "$file exists already points to dotfile"
       continue
     else
-      run_command 'mv ~/${file} ~/${file}.bak' '$file exists - save it as ${file}.bak'
+      run_command 'mv ~/${file} ~/${file}.bak' "$file exists - save it as ${file}.bak"
     fi
   fi
   run_command 'ln -s "$abs_path_file" ~' 'install $file from dotfiles project'
@@ -85,7 +85,7 @@ show_main_step "Installing global dot files"
 for file in "${global_files[@]}"
 do
   abs_path_file="${DIR}/global/${file}"
-  if [ ! -z "/etc/${file}" ]
+  if [ -e "/etc/${file}" ]
   then
     # check if it already points to dotfile
     if ls -l /etc/${file} | grep -q "$abs_path_file"
