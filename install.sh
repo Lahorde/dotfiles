@@ -85,7 +85,7 @@ show_main_step "Installing global dot files"
 for file in "${global_files[@]}"
 do
   abs_path_file="${DIR}/global/${file}"
-  if [ -e "/etc/${file}" ]
+  if [ -e "/etc/${file}" ] || [ -L "/etc/${file}" ]
   then
     # check if it already points to dotfile
     if ls -l /etc/${file} | grep -q "$abs_path_file"
